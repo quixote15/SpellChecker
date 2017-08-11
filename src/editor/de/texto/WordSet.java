@@ -9,6 +9,42 @@ package editor.de.texto;
  *
  * @author Tiago Santos
  */
-public class WordSet extends Dictionary{
+public class WordSet extends Dictionary {
     
+  
+    /**
+     * WordSet Constructor
+     */
+        WordSet(){
+            super();
+            // superclass constructor call the load method load();                    
+        }
+    
+    /**
+     * 
+     * @param word to be added into the wordset
+     */
+    void add(String word){
+        String wordset = getDictionary();
+        wordset = wordset + "\n";
+        setDictionary(wordset);
+    }
+    
+    
+    /**
+     * 
+     * 
+     * @param word to be compared with the wordset
+     * @return true if the word is in the wordset and false otherwise
+     */
+    boolean contains(String word){
+        boolean matches = false;
+        for(String current : getWords()){
+            if(current.matches(word) ){
+                matches = true;
+                break;
+            }
+        }
+        return matches;
+    }
 }

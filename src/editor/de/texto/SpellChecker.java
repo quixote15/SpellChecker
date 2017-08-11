@@ -24,8 +24,15 @@ public class SpellChecker {
      */
     public static void main(String[] args) {
         
-        Dictionary dic = new Dictionary();
-        dic.load();
+       // Dictionary dic = new Dictionary();
+        WordSet set = new WordSet();
+//        this is working dic.load();
+//        dic.setDictionary("Blabla blabla");
+//        this is working dic.save(); 
+        System.out.println("the word fuck is on dictionary? ");
+        System.out.println(set.contains("fuck"));
+      
+        //dic.save("brakeq brakequw",dic.getFilepath());
 	BufferedReader buffer = null;
 	FileReader reader = null;
         
