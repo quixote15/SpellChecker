@@ -45,16 +45,22 @@ public class SpellChecker {
             if(speller.isValidWord(set, s)){
                 //add to file
             }
+            else if(speller.isIgnoredWord(s)){
+                //ignore a palavra
+            }
             else{
                 //check if the user wants to add this word to dictionary
                 System.out.println("The word " + s + " is unkown on dictionary. "
                         + "Do you wish to add this word to the dictionary? Yes = 1, No = 0\n");
                 int n = reader.nextInt(); // Scans the next token of the input as an int.
                 if(n==1){
-                    //add to dictionary
+                    //add to output file
+                    w.putWord(s);
                 }
                 else{
                     //add this word to the ignored set of words
+                    speller.getIgnored().add(s);                 
+                    
                 }
                 
             }
@@ -81,6 +87,23 @@ public class SpellChecker {
         }
         
         return false;
+    }
+    
+    boolean isIgnoredWord(String word){
+       for(String current: ignored){
+            if(current.matches(word))
+                   return true; 
+        }
+        
+        return false;
+    }
+
+    public ArrayList<String> getIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(ArrayList<String> ignored) {
+        this.ignored = ignored;
     }
     
     
