@@ -17,14 +17,15 @@ import java.io.IOException;
 public class SpellChecker {
     
     private static final String INPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\input.txt";
-    private static final String DICTIONARYFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\dictionary.txt";
+    
     private static final String OUTPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\output.txt";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        
+        Dictionary dic = new Dictionary();
+        dic.load();
 	BufferedReader buffer = null;
 	FileReader reader = null;
         
