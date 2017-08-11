@@ -164,6 +164,8 @@ public class Dictionary {
     }
     
     
-    
+    public void setWords(String word) {
+        this.words.add(word);
+    }
     
 }

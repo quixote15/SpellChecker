@@ -27,7 +27,8 @@ public class WordSet extends Dictionary {
     void add(String word){
         String wordset = getDictionary();
         wordset = wordset + "\n";
-        setDictionary(wordset);
+        setDictionary(wordset); //add to conctanated string
+        setWords(word); //add to arraylist
     }
     
     

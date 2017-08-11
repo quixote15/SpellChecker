@@ -18,6 +18,7 @@ import java.util.ArrayList;
  */
 public class Word {
     private ArrayList<String> inputWords;
+
     private ArrayList<String> outputWords;
     
     private static final String INPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\input.txt";
@@ -44,7 +45,17 @@ public class Word {
 			String sCurrentLine;
 
 			while ((sCurrentLine = buffer.readLine()) != null) {
-				inputWords.add(sCurrentLine); //add current word
+                            /**
+                             * This Regex  means :
+
+                                    Zero or more whitespaces (\\s*)
+                                    Arrow, or comma, or whitespace (=>|,|\\s)
+                                    Zero or more whitespaces (\\s*)
+                             * 
+                             */
+                                String list[] = sCurrentLine.split("\\s+|,|\\.\\s+"); //get words separated by space
+                                for(String s : list)
+                                    inputWords.add(s); //add current word
 			}
 
 		} catch (IOException e) {
@@ -71,6 +82,15 @@ public class Word {
     }
     
     
+    
+    public ArrayList<String> getInputWords() {
+        return inputWords;
+    }
+
+    public void setInputWords(ArrayList<String> inputWords) {
+        this.inputWords = inputWords;
+    }
+    
     /**
      * 
      * @param index of the element on the array of words
@@ -91,7 +111,7 @@ public class Word {
     
     void putWords(){
          BufferedWriter bw = null;
-	FileWriter fw = null;
+	 FileWriter fw = null;
 
 		try {
 
@@ -101,7 +121,7 @@ public class Word {
 			bw = new BufferedWriter(fw);
                         //for each word append to the output file
 			for(String current : outputWords)
-                            bw.append(current);
+                            bw.append(current+"\n");
                         
 			System.out.println("Done");
 

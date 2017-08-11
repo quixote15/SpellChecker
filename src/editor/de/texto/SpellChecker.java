@@ -16,9 +16,7 @@ import java.io.IOException;
  */
 public class SpellChecker {
     
-    private static final String INPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\input.txt";
-    
-    private static final String OUTPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\output.txt";
+   
     /**
      * @param args the command line arguments
      */
@@ -26,48 +24,17 @@ public class SpellChecker {
         
        // Dictionary dic = new Dictionary();
         WordSet set = new WordSet();
+        Word w = new Word();
+        
 //        this is working dic.load();
 //        dic.setDictionary("Blabla blabla");
 //        this is working dic.save(); 
-        System.out.println("the word fuck is on dictionary? ");
-        System.out.println(set.contains("fuck"));
-      
+       
         //dic.save("brakeq brakequw",dic.getFilepath());
-	BufferedReader buffer = null;
-	FileReader reader = null;
-        
-        	try {
-
-			//br = new BufferedReader(new FileReader(FILENAME));
-			reader = new FileReader(INPUTFILENAME);
-			buffer = new BufferedReader(reader);
-
-			String sCurrentLine;
-
-			while ((sCurrentLine = buffer.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		} finally {
-
-			try {
-
-				if (buffer != null)
-					buffer.close();
-
-				if (reader != null)
-					reader.close();
-
-			} catch (IOException ex) {
-
-				ex.printStackTrace();
-
-			}
-                }
+	
+        for(String s : w.getInputWords()){
+            System.out.println(s);
+        }
 
         
         
