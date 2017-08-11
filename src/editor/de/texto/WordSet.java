@@ -9,6 +9,6 @@ package editor.de.texto;
  *
  * @author Tiago Santos
  */
-public class WordSet {
+public class WordSet extends Dictionary{
     
 }
