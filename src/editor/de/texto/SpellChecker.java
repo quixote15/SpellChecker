@@ -28,22 +28,17 @@ public class SpellChecker {
      */
     public static void main(String[] args) {
         
-       // Dictionary dic = new Dictionary();
+       
         SpellChecker speller = new SpellChecker();
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         
         WordSet set = new WordSet();
         Word w = new Word();
-        
-//        this is working dic.load();
-//        dic.setDictionary("Blabla blabla");
-//        this is working dic.save(); 
-       
-        //dic.save("brakeq brakequw",dic.getFilepath());
-	
+
         for(String s : w.getInputWords()){
             if(speller.isValidWord(set, s)){
                 //add to file
+                w.putWord(s);
             }
             else if(speller.isIgnoredWord(s)){
                 //ignore a palavra
@@ -67,7 +62,7 @@ public class SpellChecker {
             System.out.println(s);
         }
 
-        
+        w.putWords(); //adds all words to output file
         
     }
     
@@ -75,9 +70,9 @@ public class SpellChecker {
      * 
      * 
      * 
-     * @param set
-     * @param word
-     * @return 
+     * @param A Wordset containing the dictionary words
+     * @param word to search on the wordset
+     * @return true if the word is found and false otherwise
      */
     
     boolean isValidWord(WordSet set,String word){
@@ -88,6 +83,13 @@ public class SpellChecker {
         
         return false;
     }
+    
+    /**
+     * 
+     * 
+     * @param word
+     * @return 
+     */
     
     boolean isIgnoredWord(String word){
        for(String current: ignored){
