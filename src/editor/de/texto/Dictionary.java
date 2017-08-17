@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Tiago Santos
  */
 public class Dictionary {
-    private final static String filepath = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\dictionary.txt";
+    private final static String filepath = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/dictionary.txt";
     private String dictionary;
     private ArrayList<String> words;
     
@@ -54,7 +54,7 @@ public class Dictionary {
 			}
                         
                         
-                        System.out.println(sCurrentLine);
+                       // System.out.println(sCurrentLine);
 
 		} catch (IOException e) {
 
@@ -108,7 +108,9 @@ public class Dictionary {
 
 			fw = new FileWriter(filepath);
 			bw = new BufferedWriter(fw);
-			bw.write(dictionary); //write words on the dictionary
+			
+                        for(String word: words)
+                            bw.append(word + "\n");
 
 			System.out.println("Done");
 
@@ -156,7 +158,7 @@ public class Dictionary {
     }
 
     public ArrayList<String> getWords() {
-        return words;
+        return this.words;
     }
 
     public void setWords(ArrayList<String> words) {

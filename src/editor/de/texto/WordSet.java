@@ -17,6 +17,7 @@ public class WordSet extends Dictionary {
      */
         WordSet(){
             super();
+               
             // superclass constructor call the load method load();                    
         }
     
@@ -28,6 +29,7 @@ public class WordSet extends Dictionary {
         String wordset = getDictionary();
         wordset = wordset + "\n";
         setDictionary(wordset); //add to conctanated string
+        
         setWords(word); //add to arraylist
     }
     

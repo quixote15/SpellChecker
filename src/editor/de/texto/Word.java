@@ -21,8 +21,8 @@ public class Word {
 
     private ArrayList<String> outputWords;
     
-    private static final String INPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\input.txt";
-    private static final String OUTPUTFILENAME = "C:\\Users\\Tiago Santos\\Documents\\NetBeansProjects\\Editor de Texto\\src\\editor\\de\\texto\\output.txt";
+    private static final String INPUTFILENAME = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/input.txt";
+    private static final String OUTPUTFILENAME = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/output.txt";
     
     /**
      * Word constructor

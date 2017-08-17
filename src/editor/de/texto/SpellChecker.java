@@ -33,7 +33,12 @@ public class SpellChecker {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         
         WordSet set = new WordSet();
+          for(String word: set.getWords())
+           System.out.println(word);
+  
         Word w = new Word();
+        
+       
 
         for(String s : w.getInputWords()){
             if(speller.isValidWord(set, s)){
@@ -45,11 +50,12 @@ public class SpellChecker {
             }
             else{
                 //check if the user wants to add this word to dictionary
-                System.out.println("The word " + s + " is unkown on dictionary. "
+                System.out.println("The word '" + s + "' is unkown on dictionary. "
                         + "Do you wish to add this word to the dictionary? Yes = 1, No = 0\n");
                 int n = reader.nextInt(); // Scans the next token of the input as an int.
                 if(n==1){
-                    //add to output file
+                    //add to output file and dictionary
+                    set.add(s);
                     w.putWord(s);
                 }
                 else{
@@ -62,6 +68,7 @@ public class SpellChecker {
             System.out.println(s);
         }
 
+        set.save();
         w.putWords(); //adds all words to output file
         
     }
