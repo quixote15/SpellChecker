@@ -19,9 +19,12 @@ import java.util.Scanner;
 public class SpellChecker {
     
    private ArrayList<String> ignored;
+   private ArrayList<String> replaced;
    
    SpellChecker(){
        ignored = new ArrayList<String>();
+       replaced = new ArrayList<String>();
+               
    }
     /**
      * @param args the command line arguments
@@ -33,8 +36,7 @@ public class SpellChecker {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         
         WordSet set = new WordSet();
-          for(String word: set.getWords())
-           System.out.println(word);
+         
   
         Word w = new Word();
         
@@ -48,15 +50,28 @@ public class SpellChecker {
             else if(speller.isIgnoredWord(s)){
                 //ignore a palavra
             }
+            else if(speller.isReplacedWord(s)){
+                w.putWord(s); //replace all occurrences of this word
+            }
             else{
                 //check if the user wants to add this word to dictionary
                 System.out.println("The word '" + s + "' is unkown on dictionary. "
-                        + "Do you wish to add this word to the dictionary? Yes = 1, No = 0\n");
+                        + "Do you wish to add this word to the dictionary?\n 1. Igore = press 0\n2. Add to dictionary =  press 1\n3. Replace = press 2\n");
                 int n = reader.nextInt(); // Scans the next token of the input as an int.
                 if(n==1){
                     //add to output file and dictionary
                     set.add(s);
                     w.putWord(s);
+                    
+                }
+                else if(n==2){
+                    reader.nextLine();
+                    System.out.println("Please write the word : ");
+                    String newWord = reader.nextLine();
+                 
+                    w.putWord(newWord); //add the new word to the output file
+                    speller.getReplaced().add(s);
+                    System.out.println("The word '" + s +"' was replaced by the word '" +newWord + " .");
                 }
                 else{
                     //add this word to the ignored set of words
@@ -65,9 +80,14 @@ public class SpellChecker {
                 }
                 
             }
-            System.out.println(s);
+            //System.out.println(s);
         }
-
+        
+         System.out.println("The final text is: ");
+        
+        for(String text: w.getOutputWords())
+                System.out.print(text + "  ");
+            
         set.save();
         w.putWords(); //adds all words to output file
         
@@ -106,6 +126,26 @@ public class SpellChecker {
         
         return false;
     }
+    
+      
+    boolean isReplacedWord(String word){
+       for(String current: replaced){
+            if(current.matches(word))
+                   return true; 
+        }
+        
+        return false;
+    }
+
+    public ArrayList<String> getReplaced() {
+        return replaced;
+    }
+
+    public void setReplaced(ArrayList<String> replaced) {
+        this.replaced = replaced;
+    }
+    
+    
 
     public ArrayList<String> getIgnored() {
         return ignored;

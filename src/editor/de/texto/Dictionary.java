@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Tiago Santos
  */
 public class Dictionary {
-    private final static String filepath = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/dictionary.txt";
+    private final static String filepath = "/home/quixote15/Desktop/SpellChecker/src/editor/de/texto/dictionary.txt";
     private String dictionary;
     private ArrayList<String> words;
     
@@ -112,7 +112,7 @@ public class Dictionary {
                         for(String word: words)
                             bw.append(word + "\n");
 
-			System.out.println("Done");
+			//System.out.println("Done");
 
 		} catch (IOException e) {
 

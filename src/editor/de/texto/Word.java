@@ -21,8 +21,8 @@ public class Word {
 
     private ArrayList<String> outputWords;
     
-    private static final String INPUTFILENAME = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/input.txt";
-    private static final String OUTPUTFILENAME = "/home/thiago/Área de Trabalho/SpellChecker/src/editor/de/texto/output.txt";
+    private static final String INPUTFILENAME = "/home/quixote15/Desktop/SpellChecker/src/editor/de/texto/input.txt";
+    private static final String OUTPUTFILENAME = "//home/quixote15/Desktop/SpellChecker/src/editor/de/texto/output.txt";
     
     /**
      * Word constructor
@@ -107,6 +107,11 @@ public class Word {
     void putWord(String word){
         outputWords.add(word); //Appends the word at the end of array
     }
+
+    public ArrayList<String> getOutputWords() {
+        return outputWords;
+    }
+    
     
     
     void putWords(){
@@ -123,7 +128,7 @@ public class Word {
 			for(String current : outputWords)
                             bw.append(current+"\n");
                         
-			System.out.println("Done");
+			//System.out.println("Done");
 
 		} catch (IOException e) {
 
